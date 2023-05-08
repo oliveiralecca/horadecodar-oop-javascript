@@ -17,5 +17,5 @@ let ninja = {
     }
 }
 
-ninja.atirarArma()
-ninja.atirarDuasVezes()
+ninja.atirarArma() // Atirou o(a) shuriken
+ninja.atirarDuasVezes() // Atirou o(a) shuriken Atirou o(a) shuriken
