@@ -1,5 +1,5 @@
 /*
- * Object literals
+ * Object literals — Parte 1
  *  - função do ES6 que permite criar objetos mais rapidamente
  *  - utilizando nomes de variáveis para nomes de propriedades, sem redundância caso o nome da prop seja igual ao da variável (não precisa fazer "rodas: rodas")
 */
