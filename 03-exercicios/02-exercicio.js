@@ -1,6 +1,6 @@
 /*
  * Exercício 2
- *  - criar um Pessoa que tem uma propriedade nome
+ *  - criar um objeto Pessoa que tem uma propriedade nome
  *  - criar um método que exibe o nome do objeto Pessoa
 */
 
