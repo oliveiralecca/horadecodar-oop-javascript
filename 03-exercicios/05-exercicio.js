@@ -16,7 +16,7 @@ function Ninja(nome) {
   }
 }
 
-const naruto = new Ninja('Naruto', 2)
+const naruto = new Ninja('Naruto')
 const orochimaru = new Inimigo('Orochimaru')
 
 naruto.atirarShuriken(orochimaru)
