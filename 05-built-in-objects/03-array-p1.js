@@ -1,7 +1,7 @@
 /*
- * Array
+ * Array — Parte 1
  *  - pai de todos os arrays
- *  - possui também proprieades e métodos
+ *  - possui também propriedades e métodos
  *  - pode instanciar um array com 'new'
 */
 
