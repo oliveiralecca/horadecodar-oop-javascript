@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-body, h1, p, span {
+body, h1, p, span, button {
   font-family: Montserrat, sans-serif;
   color: #fff;
 }
@@ -18,6 +18,13 @@ h1 {
   margin: 30px 0;
 }
 
+button {
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+}
+
 /* calculator */
 #calculator {
   background-color: #1d293a;
@@ -28,15 +35,18 @@ h1 {
   margin: auto;
   padding-top: 30px;
   padding-bottom: 50px;
+
+  border-radius: 8px;
 }
 
 #screen-container {
   box-sizing: border-box;
-  
+
   width: 258px;
   height: 70px;
 
   border: 1px solid #354357;
+  border-radius: 4px;
 
   margin: auto;
   margin-bottom: 30px;
@@ -59,4 +69,58 @@ h1 {
   font-size: 22px;
 
   clear: both; // limpando o float
+}
+
+.btn-row {
+  position: relative;
+
+  width: 300px;
+
+  margin: auto;
+  margin-bottom: 15px;
+
+  text-align: center;
+}
+
+.btn-row:first-child, 
+.btn-row:last-child {
+  display: flex;
+  justify-content: space-between;
+ 
+  width: 272px;
+}
+
+.btn-row:last-child > .btn {
+  flex-grow: 1;
+}
+
+.btn {
+  width: 50px;
+  height: 50px;
+
+  margin: 0 7.5px;
+
+  border-radius: 4px;
+
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 50px;
+  text-align: center;
+  
+  background-color: #354357;
+}
+
+.btn:hover {
+  background-color: #636cff;
+}
+
+#ac-btn,
+#division-btn,
+#multiplication-btn,
+#minus-btn,
+#plus-btn,
+#equals-btn,
+#zero-btn {
+  font-weight: 400;
+  font-size: 20px;
 }
