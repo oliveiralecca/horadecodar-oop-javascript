@@ -5,8 +5,31 @@ class Calculator {
     this.reset = 0
   }
 
+  checkLastDigit(input, upperValue, isNumber) {
+    if(!isNumber(input) && !isNumber(upperValue[upperValue.length - 1])) {
+      return true // se o input é um símbolo e o último dígito foi um símbolo
+    } else {
+      return false
+    }
+  }
+
   btnPress() {
-    console.log('click')
+    let input = this.textContent
+    let upperValue = calculator.upperValue.textContent
+
+    // verify if input is a number
+    const isNumber = (item) => !isNaN(item)
+
+    // verify if need to add or not
+    if (calculator.checkLastDigit(input, upperValue, isNumber)) {
+      return false // checkLastDigit() retorna true, então aborta a função de add no display
+    }
+
+    if(upperValue === '0') {
+      calculator.upperValue.textContent = input
+    } else {
+      calculator.upperValue.textContent += input
+    }  
   }
 }
 
