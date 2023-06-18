@@ -18,6 +18,27 @@ class Calculator {
     }
   }
 
+  refreshValues(total) {
+    this.upperValue.textContent = total
+    this.resultValue.textContent = total
+  }
+
+  sum(n1, n2) {
+    return Number(n1) + Number(n2)
+  }
+
+  sub(n1, n2) {
+    return Number(n1) - Number(n2)
+  }
+
+  mult(n1, n2) {
+    return Number(n1) * Number(n2)
+  }
+
+  div(n1, n2) {
+    return Number(n1) / Number(n2)
+  }
+
   result() {
     // parse input string to array
     let upperValueArray = this.upperValue.textContent.split(' ')
@@ -34,7 +55,12 @@ class Calculator {
       }
     }
 
-    this.resultValue.textContent = result
+    if(result) {
+      calculator.reset = 1
+    }
+
+    // refresh display values
+    calculator.refreshValues(result)
   }
 
   btnPress() {
@@ -43,6 +69,12 @@ class Calculator {
 
     // verify if input is a number
     const isNumber = (item) => !isNaN(item)
+
+    // start a new operation after another
+    if(calculator.reset && isNumber(input)) {
+      upperValue = '0'
+    }
+    calculator.reset = 0
 
     // active clear display method
     if(input === 'AC') {
