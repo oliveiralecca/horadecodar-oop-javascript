@@ -5,7 +5,12 @@ class Calculator {
     this.reset = 0
   }
 
-  checkLastDigit(input, upperValue, isNumber) {
+  clearValues() {
+    this.upperValue.textContent = '0'
+    this.resultValue.textContent = '0'
+  }
+
+  isLastDigitASymbol(input, upperValue, isNumber) {
     if(!isNumber(input) && !isNumber(upperValue[upperValue.length - 1])) {
       return true // se o input é um símbolo e o último dígito foi um símbolo
     } else {
@@ -20,16 +25,27 @@ class Calculator {
     // verify if input is a number
     const isNumber = (item) => !isNaN(item)
 
-    // verify if need to add or not
-    if (calculator.checkLastDigit(input, upperValue, isNumber)) {
-      return false // checkLastDigit() retorna true, então aborta a função de add no display
-    }
-
-    if(upperValue === '0') {
-      calculator.upperValue.textContent = input
+    // active clear display method
+    if(input === 'AC') {
+      calculator.clearValues()
     } else {
-      calculator.upperValue.textContent += input
-    }  
+      // verify if need to add or not
+      if (calculator.isLastDigitASymbol(input, upperValue, isNumber)) {
+        return false // isLastDigitASymbol() retorna true, então aborta a função btnPress
+      }
+
+      // add spaces to operators
+      if(!isNumber(input)) {
+        input = ` ${input} `
+      }
+
+      // add input to display
+      if(upperValue === '0') {
+        calculator.upperValue.textContent = input
+      } else {
+        calculator.upperValue.textContent += input
+      }  
+    }
   }
 }
 
