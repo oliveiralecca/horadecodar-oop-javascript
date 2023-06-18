@@ -18,6 +18,25 @@ class Calculator {
     }
   }
 
+  result() {
+    // parse input string to array
+    let upperValueArray = this.upperValue.textContent.split(' ')
+
+    // final result
+    let result = 0
+
+    // operations
+    for(let i = 0; i <= upperValueArray.length; i++) {
+      let currentItem = upperValueArray[i]
+
+      if(currentItem === '+') {
+        result = Number(upperValueArray[i - 1]) + Number(upperValueArray[i + 1])
+      }
+    }
+
+    this.resultValue.textContent = result
+  }
+
   btnPress() {
     let input = this.textContent
     let upperValue = calculator.upperValue.textContent
@@ -28,6 +47,8 @@ class Calculator {
     // active clear display method
     if(input === 'AC') {
       calculator.clearValues()
+    } else if(input === '=') {
+      calculator.result()
     } else {
       // verify if need to add or not
       if (calculator.isLastDigitASymbol(input, upperValue, isNumber)) {
