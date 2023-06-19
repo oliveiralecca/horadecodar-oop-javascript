@@ -10,8 +10,8 @@ class Calculator {
     this.resultValue.textContent = '0'
   }
 
-  isLastDigitASymbol(input, upperValue, isNumber) {
-    if(!isNumber(input) && !isNumber(upperValue[upperValue.length - 1])) {
+  isLastDigitASymbol(input, upperValue, regex) {
+    if(!regex.test(input) && !regex.test(upperValue[upperValue.length - 1])) {
       return true // se o input é um símbolo e o último dígito foi um símbolo
     } else {
       return false
@@ -93,11 +93,11 @@ class Calculator {
     let input = this.textContent
     let upperValue = calculator.upperValue.textContent
 
-    // verify if input is a number
-    const isNumber = (item) => !isNaN(item)
-
+    // verify if contains only numbers
+    const regex = new RegExp('^\\d+$')
+    
     // start a new operation after another
-    if(calculator.reset && isNumber(input)) {
+    if(calculator.reset && regex.test(input)) {
       upperValue = '0'
     }
     calculator.reset = 0
@@ -109,18 +109,20 @@ class Calculator {
       calculator.result()
     } else {
       // verify if need to add or not
-      if (calculator.isLastDigitASymbol(input, upperValue, isNumber)) {
+      if (calculator.isLastDigitASymbol(input, upperValue, regex)) {
         return false // isLastDigitASymbol() retorna true, então aborta a função btnPress
       }
 
       // add spaces to operators
-      if(!isNumber(input)) {
+      if(!regex.test(input)) {
         input = ` ${input} `
       }
 
       // add input to display
       if(upperValue === '0') {
-        calculator.upperValue.textContent = input
+        if(regex.test(input)) {
+          calculator.upperValue.textContent = input
+        }
       } else {
         calculator.upperValue.textContent += input
       }  
