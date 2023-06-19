@@ -48,10 +48,36 @@ class Calculator {
 
     // operations
     for(let i = 0; i <= upperValueArray.length; i++) {
+      let operation = 0
       let currentItem = upperValueArray[i]
 
-      if(currentItem === '+') {
-        result = Number(upperValueArray[i - 1]) + Number(upperValueArray[i + 1])
+      if(currentItem === 'x') {
+        result = calculator.mult(upperValueArray[i - 1], upperValueArray[i + 1])
+        operation = 1
+      } else if(currentItem === '/') {
+        result = calculator.div(upperValueArray[i - 1], upperValueArray[i + 1])
+        operation = 1
+      } else if(!upperValueArray.includes('x') && !upperValueArray.includes('/')) {
+        if(currentItem === '+') {
+          result = calculator.sum(upperValueArray[i - 1], upperValueArray[i + 1])
+          operation = 1
+        } else if(currentItem === '-') {
+          result = calculator.sub(upperValueArray[i - 1], upperValueArray[i + 1])
+          operation = 1
+        }
+      }
+    
+
+      // update array values to next operation
+      if(operation) {
+        // previous value is operation result
+        upperValueArray[i - 1] = result
+
+        // remove already used values
+        upperValueArray.splice(i, 2)
+
+        // update index value
+        i = 0
       }
     }
 
