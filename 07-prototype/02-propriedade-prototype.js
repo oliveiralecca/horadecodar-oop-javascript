@@ -7,3 +7,10 @@
 function abc() {
     console.log('teste')
 }
+
+console.log(abc.prototype) // {}
+console.log(typeof abc.prototype) // object
+
+abc.prototype.prop = 1
+
+console.log(abc.prototype) // { prop: 1 }
