@@ -1,6 +1,6 @@
 /*
  * Checar se é prototype de algum objeto
- *  - Com o método isPrototypeOf conseguimos checar se um objeto é prototype de outro
+ *  - com o método isPrototypeOf conseguimos checar se um objeto é prototype de outro
 */
 
 const caracteristicas = {
