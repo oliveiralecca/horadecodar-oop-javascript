@@ -1,5 +1,5 @@
 /*
- * Prototype Chain
+ * Prototype Chain – Parte 1
  *  - é a maneira default da linguagem de fazer herança (ES5 – não é a maneira mais atual)
  *  - podemos instanciar objetos no prototype de outros, criando a herança
 */
