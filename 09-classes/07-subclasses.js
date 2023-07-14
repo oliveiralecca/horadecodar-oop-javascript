@@ -15,7 +15,7 @@ class Animal {
 
 class Cachorro extends Animal {
   constructor(nome, idade) {
-    super(nome) // essa prop é setada no construtor da classe pai
+    super(nome) // essa prop é passada para o constructor da classe pai (Animal)
     this.idade = idade
   }
 
