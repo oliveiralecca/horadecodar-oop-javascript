@@ -14,14 +14,19 @@ class Todo {
     list.appendChild(template);
 
     this.addEvents();
+    this.checkEmptyList('add');
   }
 
   removeTask(t) {
     const taskToRemove = t.parentElement;
     taskToRemove.remove();
+
+    this.checkEmptyList('remove');
   }
 
-  completeTask(t) {}
+  completeTask(t) {
+    t.classList.toggle('done');
+  }
 
   addEvents() {
     const allTrashButtons = document.querySelectorAll('.fa-trash');
@@ -39,6 +44,22 @@ class Todo {
     lastCheckButton.addEventListener('click', function () {
       todo.completeTask(this);
     });
+  }
+
+  checkEmptyList(cmd) {
+    const emptyMessage = document.querySelector('#empty-tasks');
+
+    if (cmd === 'add') {
+      this.totalTasks++;
+    } else if (cmd === 'remove') {
+      this.totalTasks--;
+    }
+
+    if (this.totalTasks === 1) {
+      emptyMessage.classList.remove('hide');
+    } else {
+      emptyMessage.classList.add('hide');
+    }
   }
 }
 
