@@ -1,5 +1,5 @@
 /*
- * Funções
+ * Funções – Parte 1
  *  - podemos adicionar os tipos dos parâmetros e do retorno da função
 */
 
